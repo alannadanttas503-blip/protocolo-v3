@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 <title>Protocolo 3D — Calculadora de Doses</title>
 
-<!-- Microsoft Clarity (novo projeto) -->
+<!-- Microsoft Clarity (Novo Projeto V3) -->
 <script type="text/javascript">
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -27,12 +27,12 @@ fbq('track', 'PageView');
 
 <style>
 :root{--p:#ff7a3d;--bg:#f4f7f9;--dark:#1a2a3a}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,'Helvetica Neue',Arial}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,Arial}
 html,body{height:100%;background:var(--bg);color:var(--dark)}
-.container{max-width:420px;margin:28px auto;padding:22px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(16,24,40,.08)}
+.container{max-width:420px;margin:28px auto;padding:22px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(16,24,40,.08);overflow:hidden}
 .header{display:flex;flex-direction:column;align-items:center;margin-bottom:14px}
 .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(90deg,#ff9a5e,#ff7a3d);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:10px}
-.h1{font-size:20px;font-weight:700;margin-bottom:6px}
+.h1{font-size:20px;font-weight:700;margin-bottom:6px;text-align:center}
 .h2{font-size:13px;color:#58666f;margin-bottom:12px;text-align:center}
 .badge{background:#ffece0;color:#a84b1d;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:12px;display:inline-block}
 .input{width:100%;padding:14px;border-radius:12px;border:1px solid #eef2f4;font-size:16px;margin-bottom:12px}
@@ -59,32 +59,32 @@ html,body{height:100%;background:var(--bg);color:var(--dark)}
     <div class="h2">Descubra sua dose exata de Whey e Creatina em segundos</div>
   </div>
 
-  <!-- STEP 1 -->
+  <!-- PASSO 1 -->
   <div id="step1">
     <div class="badge">Rápido • Simples • Personalizado</div>
     <input id="peso" class="input" type="number" inputmode="numeric" placeholder="Digite seu peso (kg) — ex: 85" />
-    <select id="objetivo" class="input" aria-label="Objetivo">
+    <select id="objetivo" class="input">
       <option value="massa">Ganhar Massa Muscular</option>
       <option value="definir">Perder Gordura / Definição</option>
       <option value="performance">Performance</option>
     </select>
-    <select id="treino" class="input" aria-label="Frequência de treino">
-      <option value="3">Treino 1-2x/semana</option>
-      <option value="4">Treino 3-4x/semana</option>
-      <option value="5">Treino 4-6x/semana</option>
+    <select id="treino" class="input">
+      <option value="3">Treino 1-2x por semana</option>
+      <option value="4">Treino 3-4x por semana</option>
+      <option value="5">Treino 4-6x por semana</option>
     </select>
     <button class="btn" id="btnNext">CALCULAR MEU PROTOCOLO</button>
-    <div class="small">99% mobile — otimizado para celular</div>
+    <div class="small">Otimizado para celular</div>
   </div>
 
-  <!-- STEP 2: LOADING -->
+  <!-- PASSO 2: CARREGANDO -->
   <div id="step2" style="display:none">
     <div style="text-align:center"><strong>Processando seu protocolo...</strong></div>
     <div class="loading-bar"><div class="loading-fill" id="fill"></div></div>
     <div id="status" class="note">Calculando doses precisas...</div>
   </div>
 
-  <!-- STEP 3: RESULT & OFFER -->
+  <!-- PASSO 3: RESULTADO E OFERTA -->
   <div id="step3" style="display:none">
     <div class="result-card">
       <div style="display:flex;justify-content:space-between;align-items:center">
@@ -98,7 +98,7 @@ html,body{height:100%;background:var(--bg);color:var(--dark)}
         </div>
       </div>
 
-      <div style="margin-top:12px" id="doseBox">
+      <div style="margin-top:12px">
         <div style="font-size:13px;color:#7b8b93">Dose por vez (Whey)</div>
         <div id="wheyDose" style="font-weight:800;font-size:20px;margin-top:6px"></div>
         <div id="servings" style="font-size:13px;color:#7b8b93;margin-top:6px"></div>
@@ -107,8 +107,7 @@ html,body{height:100%;background:var(--bg);color:var(--dark)}
       <div style="margin-top:12px;font-size:13px;color:#7b8b93">Proteína diária recomendada</div>
       <div id="totalDaily" style="font-weight:700;margin-top:6px"></div>
 
-      <div style="margin-top:12px" class="blur" id="blurredProtocol">
-        <!-- Borrado: aparência de "conteúdo exclusivo" -->
+      <div style="margin-top:12px" class="blur">
         Dose Whey: 45g<br>Horário: Manhã, Pós-treino, Noite<br>Receitas e guias completos
       </div>
     </div>
@@ -116,32 +115,28 @@ html,body{height:100%;background:var(--bg);color:var(--dark)}
     <div style="text-align:center;margin-top:12px">
       <div class="old-price">De R$ 97,00</div>
       <div class="price">Agora por R$ 39,90</div>
-      <div class="note">Acesso Vitalício • Garantia de 7 dias</div>
+      <div class="note">Acesso Vitalício • Garantia de 7 dias • Oferta para os primeiros 100</div>
       <button class="btn" id="btnCheckout" style="margin-top:12px">LIBERAR MEU ACESSO AGORA</button>
-      <div class="screens" style="margin-top:12px">
-        <!-- Substitua as URLs abaixo pelas suas imagens hospedadas -->
-        <img src="REPLACE_WITH_URL_app_dashboard.jpg" alt="Dashboard" />
-        <img src="REPLACE_WITH_URL_app_calculadora.jpg" alt="Calculadora" />
-        <img src="REPLACE_WITH_URL_app_receitas.jpg" alt="Receitas" />
+
+      <!-- Prints do App (Nomes corrigidos conforme seu GitHub) -->
+      <div class="screens" style="margin-top:16px">
+        <img src="app_dashboard.jpg.jpeg" alt="Dashboard" />
+        <img src="app_calculadora.jpg.jpeg" alt="Calculadora" />
+        <img src="app_receitas.jpg.jpeg" alt="Receitas" />
       </div>
     </div>
 
-    <div class="note" style="margin-top:12px">Dica: abra este link direto no Chrome/Safari se estiver no navegador interno do Facebook/Instagram.</div>
+    <div class="note" style="margin-top:12px">Dica: Abra este link no Chrome ou Safari do seu celular.</div>
   </div>
 </div>
 
 <script>
-  // --- Configurações ---
-  const CHECKOUT_URL = "https://chk.eduzz.com/39YDV2YD9O"; // seu link Eduzz
-  const CREATINE_DAILY = 5; // fixo
+  const CHECKOUT_URL = "https://chk.eduzz.com/39YDV2YD9O";
 
-  // eventos FB utilitários (se fbq não carregou, proteja)
   function fbEvent(name, data){ try{ if(window.fbq) fbq('trackCustom', name, data || {}); } catch(e){} }
 
-  // Step controls
   const pesoInput = document.getElementById('peso');
   const objetivoSel = document.getElementById('objetivo');
-  const treinoSel = document.getElementById('treino');
   const btnNext = document.getElementById('btnNext');
   const btnCheckout = document.getElementById('btnCheckout');
   const step1 = document.getElementById('step1');
@@ -150,72 +145,43 @@ html,body{height:100%;background:var(--bg);color:var(--dark)}
   const fill = document.getElementById('fill');
   const status = document.getElementById('status');
 
-  function show(el){ el.style.display = ''; }
-  function hide(el){ el.style.display = 'none'; }
-
   btnNext.addEventListener('click', function(){
     const peso = Number(pesoInput.value);
-    if(!peso || peso <= 20) { alert('Digite seu peso correto em kg.'); return; }
+    if(!peso || peso <= 30) { alert('Digite seu peso correto.'); return; }
 
-    // evento: lead / iniciou cálculo
-    fbEvent('Lead', {peso: peso, objetivo: objetivoSel.value});
+    fbEvent('Lead', {peso: peso});
     fbEvent('quiz_step_1_complete', {peso: peso});
 
-    hide(step1); show(step2);
-    // anima loading
+    step1.style.display = 'none';
+    step2.style.display = 'block';
     fill.style.width = '0%';
     setTimeout(()=>{ fill.style.width = '100%'; }, 50);
     status.innerText = 'Calculando dose de Whey...';
 
-    // simula processamento curto (3s)
     setTimeout(()=>{ status.innerText = 'Gerando protocolo e guias...'; }, 1200);
-    setTimeout(()=>{ renderResult(peso); hide(step2); show(step3); fbEvent('view_resultado', {peso: peso}); }, 2600);
+    setTimeout(()=>{ 
+        renderResult(peso); 
+        step2.style.display = 'none'; 
+        step3.style.display = 'block'; 
+        fbEvent('view_resultado', {peso: peso}); 
+    }, 2600);
   });
 
-  function round(v){ return Math.round(v); }
-
-  // algoritmo de dose (coerente com o que você mostrou)
-  function calcWheyPerDose(peso){
-    // fator 0.54 reproduz seu exemplo (94kg -> 51g)
-    const factor = 0.54;
-    return Math.max(15, round(peso * factor)); // piso para evitar doses absurdas
-  }
-  function calcTotalDailyRange(peso){
-    // faixa baseada no exemplo: [1.08, 1.63] * peso
-    const min = round(peso * 1.08);
-    const max = round(peso * 1.63);
-    return {min, max};
-  }
-
   function renderResult(peso){
-    document.getElementById('resPeso').innerText = peso + ' kg • ' + (objetivoSel.value === 'massa' ? 'Ganhar massa' : objetivoSel.value === 'definir' ? 'Definição' : 'Performance');
-    const whey = calcWheyPerDose(peso);
+    document.getElementById('resPeso').innerText = peso + ' kg • ' + (objetivoSel.value === 'massa' ? 'Ganhar massa' : 'Definição');
+    const whey = Math.round(peso * 0.54);
     document.getElementById('wheyDose').innerText = whey + ' g por dose';
-    document.getElementById('servings').innerText = 'Por dose (recomendado 2-3x ao dia dependendo das suas necessidades)';
-    const total = calcTotalDailyRange(peso);
-    document.getElementById('totalDaily').innerText = total.min + 'g — ' + total.max + 'g por dia';
-    // opcional: mostrar número aproximado de doses por dia
-    const approxMinServings = Math.max(1, Math.round(total.min / whey));
-    const approxMaxServings = Math.max(1, Math.round(total.max / whey));
-    document.getElementById('servings').innerText = 'Equivale a ~' + approxMinServings + '–' + approxMaxServings + ' doses de ' + whey + 'g';
-    // garantir que o conteúdo borrado seja reenfocado (remoção opcional após compra)
-    document.getElementById('blurredProtocol').classList.remove('blur');
-    // por padrão, mostramos borrado (dá senso de valor)
-    document.getElementById('blurredProtocol').classList.add('blur');
-    // scroll top da caixa
+    const min = Math.round(peso * 1.08);
+    const max = Math.round(peso * 1.63);
+    document.getElementById('totalDaily').innerText = min + 'g — ' + max + 'g por dia';
+    document.getElementById('servings').innerText = 'Equivale a ~' + Math.round(min/whey) + '-' + Math.round(max/whey) + ' doses de ' + whey + 'g';
     window.scrollTo({top:0,behavior:'smooth'});
   }
 
-  // Checkout
   btnCheckout.addEventListener('click', function(){
     fbEvent('InitiateCheckout', {price: 39.9});
-    // redireciona para Eduzz checkout
     window.location.href = CHECKOUT_URL;
   });
-
-  // Quick test helper se quiser simular carregamento automatico localmente
-  // (descomente para teste rápido)
-  //pesoInput.value = 85; btnNext.click();
 </script>
 
 </body>
