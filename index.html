@@ -26,28 +26,30 @@ fbq('track', 'PageView');
 </script>
 
 <style>
-:root{--p:#ff7a3d;--bg:#f4f7f9;--dark:#1a2a3a}
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,Arial}
-body{background:var(--bg);color:var(--dark);line-height:1.5;padding-bottom:40px}
-.container{max-width:420px;margin:20px auto;padding:20px;background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
-.header{text-align:center;margin-bottom:20px}
-.logo{width:50px;height:50px;background:var(--p);color:#fff;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:20px;margin-bottom:10px}
-.h1{font-size:22px;font-weight:800;margin-bottom:5px}
-.badge{background:#ffece0;color:#a84b1d;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:bold;display:inline-block;margin-bottom:15px}
-.input, select{width:100%;padding:15px;border-radius:10px;border:1px solid #ddd;font-size:16px;margin-bottom:10px}
-.btn{width:100%;background:var(--p);color:#fff;border:none;padding:18px;border-radius:10px;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 4px 15px rgba(255,122,61,0.3)}
-.loading-bar{width:100%;height:8px;background:#eee;border-radius:10px;overflow:hidden;margin:20px 0}
+:root{--p:#ff7a3d;--bg:#f0f2f5;--dark:#1a2a3a}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+body{background:var(--bg);color:var(--dark);line-height:1.6;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:20px}
+.container{width:100%;max-width:450px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.1);padding:30px;margin-top:20px}
+.header{text-align:center;margin-bottom:25px}
+.logo{width:60px;height:60px;background:linear-gradient(135deg, #ff9a5e, #ff7a3d);color:#fff;border-radius:15px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:24px;margin-bottom:15px;box-shadow:0 4px 12px rgba(255,122,61,0.2)}
+.h1{font-size:24px;font-weight:850;letter-spacing:-0.5px;margin-bottom:8px}
+.badge{background:#fff0e6;color:#e65100;padding:6px 16px;border-radius:30px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px}
+.label{display:block;text-align:left;font-size:14px;font-weight:700;margin-bottom:8px;color:#4a5568}
+.input, select{width:100%;padding:16px;border-radius:12px;border:2px solid #edf2f7;font-size:16px;margin-bottom:20px;background:#f8fafc;transition:all 0.3s}
+.input:focus{border-color:var(--p);outline:none;background:#fff}
+.btn{width:100%;background:var(--p);color:#fff;border:none;padding:20px;border-radius:12px;font-weight:800;font-size:18px;cursor:pointer;transition:transform 0.2s, box-shadow 0.2s;box-shadow:0 8px 20px rgba(255,122,61,0.3);text-transform:uppercase;letter-spacing:1px}
+.btn:active{transform:scale(0.98)}
+.loading-bar{width:100%;height:10px;background:#edf2f7;border-radius:10px;overflow:hidden;margin:25px 0}
 .loading-fill{height:100%;width:0;background:var(--p);transition:2.5s linear}
-.result-card{background:#f8fafc;padding:20px;border-radius:12px;border:1px solid #edf2f7;margin-bottom:20px}
-.price-box{text-align:center;margin:25px 0}
-.old-price{text-decoration:line-through;color:#a0aec0;font-size:14px}
-.new-price{color:var(--p);font-size:36px;font-weight:900;margin:5px 0}
-.app-showcase{margin-top:40px;border-top:2px solid #f4f7f9;padding-top:30px}
-.app-step{margin-bottom:40px;text-align:center}
-.app-step img{width:100%;max-width:100%;height:auto;border-radius:15px;box-shadow:0 12px-25px rgba(0,0,0,0.12);margin-top:15px;display:block}
-.app-step h3{font-size:18px;font-weight:800;color:var(--dark);margin-bottom:8px}
-.app-step p{font-size:15px;color:#4a5568;padding:0 10px}
-.blur{filter:blur(5px);opacity:0.6}
+.result-card{background:#f8fafc;padding:25px;border-radius:15px;border:1px solid #e2e8f0;margin-bottom:25px}
+.price-box{text-align:center;margin:30px 0;padding:20px;background:#fff9f5;border-radius:15px;border:1px dashed var(--p)}
+.old-price{text-decoration:line-through;color:#a0aec0;font-size:16px}
+.new-price{color:var(--p);font-size:42px;font-weight:900;line-height:1}
+.app-showcase{margin-top:40px;border-top:1px solid #edf2f7;padding-top:30px}
+.app-step{margin-bottom:45px;text-align:center}
+.app-step img{width:100%;border-radius:18px;box-shadow:0 15px 35px rgba(0,0,0,0.15);margin-top:15px}
+.app-step h3{font-size:19px;font-weight:800;margin-bottom:10px}
+.blur{filter:blur(6px);opacity:0.5}
 </style>
 </head>
 <body>
@@ -56,40 +58,48 @@ body{background:var(--bg);color:var(--dark);line-height:1.5;padding-bottom:40px}
   <div class="header">
     <div class="logo">3D</div>
     <h1 class="h1">Protocolo 3D</h1>
-    <p style="color:#718096;font-size:14px">Calculadora de Suplementação Inteligente</p>
+    <p style="color:#718096;font-size:15px">Calculadora de Suplementação Inteligente</p>
   </div>
 
   <!-- PASSO 1 -->
-  <div id="step1">
-    <div style="text-align:center"><span class="badge">CALCULE AGORA</span></div>
-    <input id="peso" type="number" inputmode="numeric" placeholder="Seu peso atual (kg)">
-    <select id="objetivo">
-      <option value="massa">Ganhar Massa Muscular</option>
-      <option value="definir">Definição / Perda de Gordura</option>
-    </select>
-    <button class="btn" id="btnNext">VER MEU PROTOCOLO</button>
+  <div id="step1" style="text-align:center">
+    <span class="badge">Análise Gratuita</span>
+    
+    <div style="text-align:left">
+        <label class="label">Seu peso atual (kg):</label>
+        <input id="peso" class="input" type="number" inputmode="numeric" placeholder="Ex: 85">
+        
+        <label class="label">Seu objetivo principal:</label>
+        <select id="objetivo" class="input">
+          <option value="massa">Ganhar Massa Muscular</option>
+          <option value="definir">Definição / Perda de Gordura</option>
+        </select>
+    </div>
+    
+    <button class="btn" id="btnNext">Ver Meu Protocolo</button>
+    <p style="font-size:12px;color:#a0aec0;margin-top:15px">Leva menos de 10 segundos</p>
   </div>
 
   <!-- PASSO 2: CARREGANDO -->
   <div id="step2" style="display:none;text-align:center">
-    <p><strong>Analisando seu perfil...</strong></p>
+    <p style="font-size:18px"><strong>Analisando seu perfil...</strong></p>
     <div class="loading-bar"><div class="loading-fill" id="fill"></div></div>
-    <p id="status" style="font-size:12px;color:#718096">Cruzando dados de peso e objetivo...</p>
+    <p id="status" style="font-size:14px;color:#718096">Cruzando dados de peso e objetivo...</p>
   </div>
 
   <!-- PASSO 3: RESULTADO -->
   <div id="step3" style="display:none">
     <div class="result-card">
-      <p style="font-size:12px;color:#718096;text-transform:uppercase;font-weight:bold">Resultado Gerado:</p>
-      <h2 id="resPeso" style="margin-bottom:15px"></h2>
+      <p style="font-size:12px;color:#718096;text-transform:uppercase;font-weight:bold;margin-bottom:10px">Resultado Gerado:</p>
+      <h2 id="resPeso" style="font-size:24px;margin-bottom:20px"></h2>
       
-      <div style="border-top:1px solid #eee;padding-top:15px">
-        <p style="font-size:16px">Dose de Whey: <strong id="wheyDose" style="color:var(--p)"></strong></p>
-        <p style="font-size:16px">Creatina: <strong style="color:var(--p)">5g por dia</strong></p>
-        <p style="font-size:14px;margin-top:10px;color:#718096" id="totalDaily"></p>
+      <div style="border-top:2px solid #fff;padding-top:20px">
+        <p style="font-size:18px;margin-bottom:10px">Dose de Whey: <strong id="wheyDose" style="color:var(--p)"></strong></p>
+        <p style="font-size:18px;margin-bottom:10px">Creatina: <strong style="color:var(--p)">5g por dia</strong></p>
+        <p style="font-size:15px;margin-top:15px;color:#4a5568;line-height:1.4" id="totalDaily"></p>
       </div>
 
-      <div class="blur" style="margin-top:15px;font-size:12px;background:#eee;padding:10px;border-radius:8px">
+      <div class="blur" style="margin-top:20px;font-size:13px;background:#f1f5f9;padding:15px;border-radius:10px;border:1px solid #e2e8f0">
         HORÁRIOS EXATOS: [BLOQUEADO]<br>
         MELHORES MARCAS: [BLOQUEADO]<br>
         GUIA DE RECEITAS: [BLOQUEADO]
@@ -99,38 +109,37 @@ body{background:var(--bg);color:var(--dark);line-height:1.5;padding-bottom:40px}
     <div class="price-box">
       <p class="old-price">De R$ 97,00</p>
       <p class="new-price">R$ 39,90</p>
-      <p style="font-size:13px;font-weight:bold;color:#2d3748">ACESSO VITALÍCIO AO APP</p>
+      <p style="font-size:14px;font-weight:800;color:#2d3748;margin-top:10px">ACESSO VITALÍCIO AO APP</p>
     </div>
 
-    <button class="btn" id="btnCheckout">LIBERAR MEU ACESSO IMEDIATO</button>
+    <button class="btn" id="btnCheckout">Liberar Meu Acesso</button>
 
-    <!-- SHOWCASE DO APP - IMAGENS GRANDES UMA ABAIXO DA OUTRA -->
     <div class="app-showcase">
-      <div style="text-align:center;margin-bottom:30px">
-        <h2 style="font-size:20px;font-weight:900">O que você vai receber:</h2>
+      <div style="text-align:center;margin-bottom:35px">
+        <h2 style="font-size:22px;font-weight:900">O que você vai receber:</h2>
       </div>
 
       <div class="app-step">
         <h3>1. Seu Painel de Controle</h3>
-        <p>Acompanhe sua evolução e veja quanto você está economizando por mês.</p>
+        <p style="color:#4a5568">Acompanhe sua evolução e veja quanto você está economizando por mês.</p>
         <img src="app_dashboard.jpg.jpeg" alt="Painel do App">
       </div>
 
       <div class="app-step">
         <h3>2. Calculadora de Precisão</h3>
-        <p>Nunca mais erre a dose. Saiba exatamente quanto tomar de cada suplemento.</p>
+        <p style="color:#4a5568">Nunca mais erre a dose. Saiba exatamente quanto tomar de cada suplemento.</p>
         <img src="app_calculadora.jpg.jpeg" alt="Calculadora do App">
       </div>
 
       <div class="app-step">
         <h3>3. Guia de Receitas Anabólicas</h3>
-        <p>Dezenas de opções práticas para bater sua meta de proteína com sabor.</p>
+        <p style="color:#4a5568">Dezenas de opções práticas para bater sua meta de proteína com sabor.</p>
         <img src="app_receitas.jpg.jpeg" alt="Receitas do App">
       </div>
     </div>
 
-    <button class="btn" id="btnCheckout2" style="margin-top:10px">QUERO MEU ACESSO AGORA</button>
-    <p style="text-align:center;font-size:11px;color:#a0aec0;margin-top:20px">Compra segura • Garantia de 7 dias • Entrega via E-mail</p>
+    <button class="btn" id="btnCheckout2" style="margin-top:10px">Quero Meu Acesso Agora</button>
+    <p style="text-align:center;font-size:12px;color:#a0aec0;margin-top:25px">Compra segura • Garantia de 7 dias • Entrega via E-mail</p>
   </div>
 </div>
 
@@ -156,7 +165,7 @@ body{background:var(--bg);color:var(--dark);line-height:1.5;padding-bottom:40px}
       document.getElementById('resPeso').innerText = peso + "kg • " + (document.getElementById('objetivo').value === 'massa' ? 'Ganho de Massa' : 'Definição');
       const whey = Math.round(peso * 0.54);
       document.getElementById('wheyDose').innerText = whey + "g por dose";
-      document.getElementById('totalDaily').innerText = "Recomendação diária: " + Math.round(peso * 1.08) + "g a " + Math.round(peso * 1.63) + "g de proteína.";
+      document.getElementById('totalDaily').innerText = "Sua meta diária recomendada é de " + Math.round(peso * 1.08) + "g a " + Math.round(peso * 1.63) + "g de proteína.";
       
       document.getElementById('step2').style.display = 'none';
       document.getElementById('step3').style.display = 'block';
