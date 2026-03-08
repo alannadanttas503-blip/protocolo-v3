@@ -99,6 +99,50 @@
                 
                 <p class="social-proof">⭐ Junte-se a +1.240 usuários ativos</p>
                 <p class="urgency">⚠️ ÚLTIMAS 7 VAGAS COM ACESSO VITALÍCIO</p>
+           <!-- BLOCO DE CONVERSÃO: URGÊNCIA + SEGURANÇA -->
+<div id="conversion-booster" style="max-width: 350px; margin: 20px auto; padding: 15px; border: 1px dashed #28a745; border-radius: 10px; background-color: #f9fff9; font-family: sans-serif; text-align: center;">
+    <p style="color: #d9534f; font-weight: bold; font-size: 14px; margin: 0 0 5px 0; text-transform: uppercase;">
+        ⚠️ Esta oferta expira em:
+    </p>
+    <div id="countdown-timer" style="font-size: 24px; font-weight: bold; color: #333; margin-bottom: 10px;">05:00</div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px;">
+        <div style="font-size: 11px; color: #555; line-height: 1.2;">
+            <img src="https://img.icons8.com/color/48/000000/shield.png" style="width: 18px; vertical-align: middle;">
+            <strong>Compra Segura</strong>
+        </div>
+        <div style="width: 1px; height: 20px; background: #ccc;"></div>
+        <div style="font-size: 11px; color: #555; line-height: 1.2;">
+            <img src="https://img.icons8.com/color/48/000000/ok--v1.png" style="width: 18px; vertical-align: middle;">
+            <strong>7 Dias Garantia</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Script do Cronômetro Regressivo
+    (function() {
+        var duration = 60 * 5;
+        var timer = duration, minutes, seconds;
+        var display = document.querySelector('#countdown-timer');
+        
+        var countdown = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (display) {
+                display.textContent = minutes + ":" + seconds;
+            }
+
+            if (--timer < 0) {
+                timer = 0;
+                clearInterval(countdown);
+            }
+        }, 1000);
+    })();
+</script>
             </div>
         </div>
     </div>
