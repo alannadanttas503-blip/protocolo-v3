@@ -1,151 +1,173 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title>Protocolo 3D — Calculadora de Doses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Protocolo 3D - Calculadora de Suplementação</title>
+    
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vrtjsdkdmx");
+    </script>
 
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/vrtjsdkdmx";
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script");
-</script>
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '762390922964859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=762390922964859&ev=PageView&noscript=1"
+    /></noscript>
 
-<!-- Facebook Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '762390922964859');
-fbq('track', 'PageView');
-</script>
+    <style>
+        :root {
+            --primary: #ff7a3d;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
 
-<style>
-:root{--p:#ff7a3d;--bg:#f0f2f5;--dark:#1a2a3a}
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
-body{background:var(--bg);color:var(--dark);line-height:1.6;display:flex;flex-direction:column;align-items:center;min-height:100vh;padding:20px}
-.container{width:100%;max-width:450px;background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.1);padding:30px;margin-top:20px}
-.header{text-align:center;margin-bottom:25px}
-.logo{width:60px;height:60px;background:linear-gradient(135deg, #ff9a5e, #ff7a3d);color:#fff;border-radius:15px;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;font-size:24px;margin-bottom:15px}
-.h1{font-size:24px;font-weight:850;margin-bottom:8px}
-.badge{background:#fff0e6;color:#e65100;padding:6px 16px;border-radius:30px;font-size:12px;font-weight:800;display:inline-block;margin-bottom:20px;text-transform:uppercase}
-.label{display:block;text-align:left;font-size:14px;font-weight:700;margin-bottom:8px;color:#4a5568}
-.input, select{width:100%;padding:16px;border-radius:12px;border:2px solid #edf2f7;font-size:16px;margin-bottom:20px;background:#f8fafc}
-.btn{width:100%;background:var(--p);color:#fff;border:none;padding:20px;border-radius:12px;font-weight:800;font-size:18px;cursor:pointer;box-shadow:0 8px 20px rgba(255,122,61,0.3);text-transform:uppercase}
-.loading-bar{width:100%;height:10px;background:#edf2f7;border-radius:10px;overflow:hidden;margin:25px 0}
-.loading-fill{height:100%;width:0;background:var(--p);transition:2.5s linear}
-.result-card{background:#f8fafc;padding:25px;border-radius:15px;border:1px solid #e2e8f0;margin-bottom:25px}
-.price-box{text-align:center;margin:30px 0;padding:20px;background:#fff9f5;border-radius:15px;border:1px dashed var(--p)}
-.old-price{text-decoration:line-through;color:#a0aec0;font-size:16px}
-.new-price{color:var(--p);font-size:42px;font-weight:900;line-height:1}
-.bonus-tag{background:#e6fffa;color:#2c7a7b;padding:10px;border-radius:8px;font-size:13px;font-weight:bold;margin-top:15px;border:1px solid #b2f5ea}
-.app-showcase{margin-top:40px;border-top:1px solid #edf2f7;padding-top:30px}
-.app-step{margin-bottom:45px;text-align:center}
-.app-step img{width:100%;border-radius:18px;box-shadow:0 15px 35px rgba(0,0,0,0.15);margin-top:15px}
-.blur{filter:blur(6px);opacity:0.5}
-</style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+        .container { width: 100%; max-width: 450px; background: var(--white); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 10px; }
+
+        header { text-align: center; margin-bottom: 25px; }
+        header h1 { font-size: 24px; color: var(--dark); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        header p { font-size: 14px; color: #666; }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+        input { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--primary); }
+
+        .btn-calc { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn-calc:active { transform: scale(0.98); }
+
+        #loading { display: none; text-align: center; margin: 20px 0; }
+        .spinner { width: 30px; height: 30px; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #result-area { display: none; margin-top: 25px; border-top: 2px dashed #eee; padding-top: 20px; }
+        .result-card { background: #fff9f5; border: 1px solid #ffe0d1; padding: 15px; border-radius: 15px; position: relative; overflow: hidden; }
+        .blur-text { filter: blur(5px); user-select: none; pointer-events: none; opacity: 0.6; }
+        
+        .overlay-cta { text-align: center; margin-top: 15px; }
+        .price-tag { font-size: 14px; color: #666; margin-bottom: 5px; }
+        .price-tag span { text-decoration: line-through; }
+        .price-now { font-size: 22px; color: var(--primary); font-weight: 800; display: block; margin-bottom: 10px; }
+
+        .btn-buy { 
+            display: block; width: 100%; background: #25d366; color: white; text-decoration: none; 
+            padding: 20px; border-radius: 12px; font-size: 20px; font-weight: 800; 
+            text-transform: uppercase; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .social-proof { font-size: 12px; color: #888; margin-top: 10px; font-weight: 500; }
+        .urgency { font-size: 11px; color: #d93025; margin-top: 5px; font-weight: 700; text-transform: uppercase; }
+
+        footer { margin-top: 30px; text-align: center; font-size: 11px; color: #999; max-width: 400px; }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <div class="logo">3D</div>
-    <h1 class="h1">Protocolo 3D</h1>
-    <p style="color:#718096;font-size:15px">Calculadora de Suplementação Inteligente</p>
-  </div>
+    <div class="container">
+        <header>
+            <h1>Protocolo 3D</h1>
+            <p>Calculadora de Suplementação Inteligente</p>
+        </header>
 
-  <div id="step1" style="text-align:center">
-    <span class="badge">Análise Gratuita</span>
-    <div style="text-align:left">
-        <label class="label">Seu peso atual (kg):</label>
-        <input id="peso" class="input" type="number" inputmode="numeric" placeholder="Ex: 85">
-        <label class="label">Seu objetivo principal:</label>
-        <select id="objetivo" class="input">
-          <option value="massa">Ganhar Massa Muscular</option>
-          <option value="definir">Definição / Perda de Gordura</option>
-        </select>
-    </div>
-    <button class="btn" id="btnNext">Ver Meu Protocolo</button>
-  </div>
+        <div class="input-group">
+            <label>Seu peso atual (kg):</label>
+            <input type="number" id="peso" placeholder="Ex: 75" inputmode="numeric">
+        </div>
 
-  <div id="step2" style="display:none;text-align:center">
-    <p style="font-size:18px"><strong>Analisando seu perfil...</strong></p>
-    <div class="loading-bar"><div class="loading-fill" id="fill"></div></div>
-  </div>
+        <button class="btn-calc" onclick="calcular()">Ver Meu Protocolo</button>
 
-  <div id="step3" style="display:none">
-    <div class="result-card">
-      <p style="font-size:12px;color:#718096;text-transform:uppercase;font-weight:bold;margin-bottom:10px">Resultado Gerado:</p>
-      <h2 id="resPeso" style="font-size:24px;margin-bottom:20px"></h2>
-      <div style="border-top:2px solid #fff;padding-top:20px">
-        <p style="font-size:18px;margin-bottom:10px">Dose de Whey: <strong id="wheyDose" style="color:var(--p)"></strong></p>
-        <p style="font-size:18px;margin-bottom:10px">Creatina: <strong style="color:var(--p)">5g por dia</strong></p>
-      </div>
-      <div class="blur" style="margin-top:20px;font-size:13px;background:#f1f5f9;padding:15px;border-radius:10px;border:1px solid #e2e8f0">
-        HORÁRIOS EXATOS: [BLOQUEADO]<br>
-        MELHORES MARCAS: [BLOQUEADO]<br>
-        GUIA DE RECEITAS: [BLOQUEADO]
-      </div>
-    </div>
+        <div id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 10px; font-size: 13px; font-weight: 600;">Analisando seu perfil...</p>
+        </div>
 
-    <div class="price-box">
-      <p class="old-price">De R$ 97,00</p>
-      <p class="new-price">R$ 39,90</p>
-      <div class="bonus-tag">🎁 INCLUSO: Guia de Combinações Proibidas</div>
-      <p style="font-size:12px;font-weight:800;color:#2d3748;margin-top:10px">ACESSO VITALÍCIO • LIBERAÇÃO IMEDIATA</p>
+        <div id="result-area">
+            <div class="result-card">
+                <h3 style="font-size: 16px; margin-bottom: 10px;">✅ Protocolo Gerado com Sucesso!</h3>
+                <div class="blur-text">
+                    <p><strong>Whey Protein:</strong> 32g após o treino</p>
+                    <p><strong>Creatina:</strong> 5g todos os dias</p>
+                    <p><strong>Pré-treino:</strong> 8g (1 scoop) 30min antes</p>
+                    <p><strong>Dica:</strong> Evite tomar com leite para...</p>
+                </div>
+            </div>
+
+            <div class="overlay-cta">
+                <p class="price-tag">De <span>R$ 97,00</span> por apenas:</p>
+                <span class="price-now">R$ 39,90</span>
+                
+                <a href="https://chk.eduzz.com/39YDV2YD9O" class="btn-buy" onclick="trackPurchaseClick()">Quero Meu Acesso Agora</a>
+                
+                <p class="social-proof">⭐ Junte-se a +1.240 usuários ativos</p>
+                <p class="urgency">⚠️ Últimas 7 vagas com acesso vitalício</p>
+            </div>
+        </div>
     </div>
 
-    <button class="btn" id="btnCheckout">Liberar Meu Acesso</button>
+    <footer>
+        <p>&copy; 2026 Protocolo 3D - Todos os direitos reservados.</p>
+        <p style="margin-top: 5px;">Este site não é afiliado ao Facebook ou Meta Inc.</p>
+    </footer>
 
-    <div class="app-showcase">
-      <div class="app-step">
-        <h3>1. Seu Painel de Controle</h3>
-        <img src="app_dashboard.jpg.jpeg" alt="Painel">
-      </div>
-      <div class="app-step">
-        <h3>2. Calculadora de Precisão</h3>
-        <img src="app_calculadora.jpg.jpeg" alt="Calculadora">
-      </div>
-      <div class="app-step">
-        <h3>3. Guia de Receitas Anabólicas</h3>
-        <img src="app_receitas.jpg.jpeg" alt="Receitas">
-      </div>
-    </div>
-    <button class="btn" id="btnCheckout2" style="margin-top:10px">Quero Meu Acesso Agora</button>
-  </div>
-</div>
+    <script>
+        function calcular() {
+            const peso = document.getElementById('peso').value;
+            if (!peso || peso < 30) {
+                alert("Por favor, insira um peso válido.");
+                return;
+            }
 
-<script>
-  const CHECKOUT_URL = "https://pay.kirvano.com/5fdffb60-04b4-4f88-a5da-75bd66dd4a22";
-  function fbEvent(name, data){ try{ if(window.fbq) fbq('trackCustom', name, data || {}); } catch(e){} }
+            // Track Lead no Pixel
+            fbq('track', 'Lead', { value: peso, content_name: 'Calculadora Peso' });
 
-  const btnNext = document.getElementById('btnNext');
-  const pesoInput = document.getElementById('peso');
-  const fill = document.getElementById('fill');
+            document.querySelector('.btn-calc').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
 
-  btnNext.addEventListener('click', function(){
-    const peso = Number(pesoInput.value);
-    if(!peso || peso < 30) { alert('Por favor, digite um peso válido.'); return; }
-    fbEvent('Lead', {peso: peso});
-    document.getElementById('step1').style.display = 'none';
-    document.getElementById('step2').style.display = 'block';
-    setTimeout(()=> { fill.style.width = '100%'; }, 50);
-    setTimeout(()=> {
-      document.getElementById('resPeso').innerText = peso + "kg • " + (document.getElementById('objetivo').value === 'massa' ? 'Ganho de Massa' : 'Definição');
-      document.getElementById('wheyDose').innerText = Math.round(peso * 0.54) + "g por dose";
-      document.getElementById('step2').style.display = 'none';
-      document.getElementById('step3').style.display = 'block';
-      fbEvent('view_resultado', {peso: peso});
-    }, 2600);
-  });
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result-area').style.display = 'block';
+                
+                // Track ViewContent no Pixel
+                fbq('track', 'ViewContent', { content_name: 'Resultado Calculadora' });
+                
+                // Scroll suave para o resultado
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }, 2000);
+        }
 
-  document.getElementById('btnCheckout').onclick = () => { fbEvent('InitiateCheckout'); window.location.href = CHECKOUT_URL; };
-  document.getElementById('btnCheckout2').onclick = () => { fbEvent('InitiateCheckout'); window.location.href = CHECKOUT_URL; };
-</script>
+        function trackPurchaseClick() {
+            // Track InitiateCheckout no Pixel
+            fbq('track', 'InitiateCheckout');
+        }
+    </script>
+
 </body>
 </html>
