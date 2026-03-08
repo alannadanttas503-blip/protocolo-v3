@@ -27,66 +27,37 @@
     fbq('init', '762390922964859');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=762390922964859&ev=PageView&noscript=1"
-    /></noscript>
 
     <style>
-        :root {
-            --primary: #ff7a3d;
-            --dark: #1a1a1a;
-            --light: #f4f4f4;
-            --white: #ffffff;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-
+        :root { --primary: #ff7a3d; --dark: #1a1a1a; --light: #f4f4f4; --white: #ffffff; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); display: flex; flex-direction: column; align-items: center; padding: 20px; }
         .container { width: 100%; max-width: 450px; background: var(--white); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 10px; }
-
         header { text-align: center; margin-bottom: 25px; }
-        header h1 { font-size: 24px; color: var(--dark); font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
-        header p { font-size: 14px; color: #666; }
-
+        header h1 { font-size: 24px; font-weight: 800; text-transform: uppercase; }
         .input-group { margin-bottom: 20px; }
         label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
-        input { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--primary); }
-
-        .btn-calc { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
-        .btn-calc:active { transform: scale(0.98); }
-
+        input { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 16px; outline: none; }
+        .btn-calc { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
         #loading { display: none; text-align: center; margin: 20px 0; }
         .spinner { width: 30px; height: 30px; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         #result-area { display: none; margin-top: 25px; border-top: 2px dashed #eee; padding-top: 20px; }
-        .result-card { background: #fff9f5; border: 1px solid #ffe0d1; padding: 15px; border-radius: 15px; position: relative; overflow: hidden; }
-        .blur-text { filter: blur(5px); user-select: none; pointer-events: none; opacity: 0.6; }
-        
+        .result-card { background: #fff9f5; border: 1px solid #ffe0d1; padding: 15px; border-radius: 15px; }
+        .blur-text { filter: blur(5px); user-select: none; opacity: 0.6; }
         .overlay-cta { text-align: center; margin-top: 15px; }
-        .price-tag { font-size: 14px; color: #666; margin-bottom: 5px; }
+        .price-tag { font-size: 14px; color: #666; }
         .price-tag span { text-decoration: line-through; }
         .price-now { font-size: 22px; color: var(--primary); font-weight: 800; display: block; margin-bottom: 10px; }
-
         .btn-buy { 
             display: block; width: 100%; background: #25d366; color: white; text-decoration: none; 
             padding: 20px; border-radius: 12px; font-size: 20px; font-weight: 800; 
-            text-transform: uppercase; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            animation: pulse 2s infinite;
+            text-transform: uppercase; animation: pulse 2s infinite; text-align: center;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        .social-proof { font-size: 12px; color: #888; margin-top: 10px; font-weight: 500; }
-        .urgency { font-size: 11px; color: #d93025; margin-top: 5px; font-weight: 700; text-transform: uppercase; }
-
-        footer { margin-top: 30px; text-align: center; font-size: 11px; color: #999; max-width: 400px; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        .social-proof { font-size: 12px; color: #888; margin-top: 10px; }
+        .urgency { font-size: 11px; color: #d93025; margin-top: 5px; font-weight: 700; }
+        footer { margin-top: 30px; text-align: center; font-size: 11px; color: #999; }
     </style>
 </head>
 <body>
@@ -106,17 +77,16 @@
 
         <div id="loading">
             <div class="spinner"></div>
-            <p style="margin-top: 10px; font-size: 13px; font-weight: 600;">Analisando seu perfil...</p>
+            <p style="margin-top: 10px; font-size: 13px;">Analisando seu perfil...</p>
         </div>
 
         <div id="result-area">
             <div class="result-card">
-                <h3 style="font-size: 16px; margin-bottom: 10px;">✅ Protocolo Gerado com Sucesso!</h3>
+                <h3 style="font-size: 16px; margin-bottom: 10px;">✅ Protocolo Gerado!</h3>
                 <div class="blur-text">
                     <p><strong>Whey Protein:</strong> 32g após o treino</p>
                     <p><strong>Creatina:</strong> 5g todos os dias</p>
                     <p><strong>Pré-treino:</strong> 8g (1 scoop) 30min antes</p>
-                    <p><strong>Dica:</strong> Evite tomar com leite para...</p>
                 </div>
             </div>
 
@@ -124,50 +94,33 @@
                 <p class="price-tag">De <span>R$ 97,00</span> por apenas:</p>
                 <span class="price-now">R$ 39,90</span>
                 
-                <a href="https://chk.eduzz.com/39YDV2YD9O" class="btn-buy" onclick="trackPurchaseClick()">Quero Meu Acesso Agora</a>
+                <!-- LINK KIRVANO ATUALIZADO -->
+                <a href="https://pay.kirvano.com/5fdffb60-04b4-4f88-a5da-75bd66dd4a22" class="btn-buy" onclick="trackPurchaseClick()">Quero Meu Acesso Agora</a>
                 
                 <p class="social-proof">⭐ Junte-se a +1.240 usuários ativos</p>
-                <p class="urgency">⚠️ Últimas 7 vagas com acesso vitalício</p>
+                <p class="urgency">⚠️ ÚLTIMAS 7 VAGAS COM ACESSO VITALÍCIO</p>
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Protocolo 3D - Todos os direitos reservados.</p>
-        <p style="margin-top: 5px;">Este site não é afiliado ao Facebook ou Meta Inc.</p>
     </footer>
 
     <script>
         function calcular() {
             const peso = document.getElementById('peso').value;
-            if (!peso || peso < 30) {
-                alert("Por favor, insira um peso válido.");
-                return;
-            }
-
-            // Track Lead no Pixel
-            fbq('track', 'Lead', { value: peso, content_name: 'Calculadora Peso' });
-
+            if (!peso || peso < 30) { alert("Insira um peso válido."); return; }
+            fbq('track', 'Lead');
             document.querySelector('.btn-calc').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
-
             setTimeout(() => {
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('result-area').style.display = 'block';
-                
-                // Track ViewContent no Pixel
-                fbq('track', 'ViewContent', { content_name: 'Resultado Calculadora' });
-                
-                // Scroll suave para o resultado
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                fbq('track', 'ViewContent');
             }, 2000);
         }
-
-        function trackPurchaseClick() {
-            // Track InitiateCheckout no Pixel
-            fbq('track', 'InitiateCheckout');
-        }
+        function trackPurchaseClick() { fbq('track', 'InitiateCheckout'); }
     </script>
-
 </body>
 </html>
