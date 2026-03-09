@@ -96,6 +96,9 @@
                 
                 <!-- LINK KIRVANO ATUALIZADO -->
                 <a href="https://pay.kirvano.com/5fdffb60-04b4-4f88-a5da-75bd66dd4a22" class="btn-buy" onclick="trackPurchaseClick()">Quero Meu Acesso Agora</a>
+                <p style="text-align: center; font-size: 12px; color: #28a745; font-weight: bold; margin-top: 5px; margin-bottom: 15px;">
+    ✅ ACESSO LIBERADO NA HORA VIA E-MAIL (PIX)
+</p>
                 
                 <p class="social-proof">⭐ Junte-se a +1.240 usuários ativos</p>
                 <p class="urgency">⚠️ ÚLTIMAS 7 VAGAS COM ACESSO VITALÍCIO</p>
@@ -167,4 +170,33 @@
         function trackPurchaseClick() { fbq('track', 'InitiateCheckout'); }
     </script>
 </body>
+    <!-- Pop-up de Prova Social Dinâmico -->
+<div id="social-pop" style="display: none; position: fixed; bottom: 20px; left: 20px; background: white; padding: 10px 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 9999; border-left: 5px solid #28a745; font-family: sans-serif; align-items: center; gap: 10px;">
+    <img src="https://img.icons8.com/color/48/000000/checked-user-male.png" style="width: 30px;">
+    <div>
+        <p id="pop-text" style="margin: 0; font-size: 12px; color: #333; font-weight: bold;"></p>
+        <p style="margin: 0; font-size: 10px; color: #28a745;">Acabou de adquirir o acesso vitalício!</p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const names = ["Marcos S.", "Ana P.", "Ricardo F.", "Juliana M.", "Lucas T.", "Carla R.", "Felipe B.", "Gustavo H.", "Beatriz L."];
+        const pop = document.getElementById('social-pop');
+        const popText = document.getElementById('pop-text');
+
+        function showPop() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            popText.innerText = name;
+            pop.style.display = 'flex';
+            setTimeout(() => { pop.style.display = 'none'; }, 5000);
+        }
+
+        // Mostra o primeiro após 8 segundos, depois a cada 25 segundos
+        setTimeout(() => {
+            showPop();
+            setInterval(showPop, 25000);
+        }, 8000);
+    })();
+</script>
 </html>
