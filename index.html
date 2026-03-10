@@ -14,7 +14,7 @@
         })(window, document, "clarity", "script", "vrtjsdkdmx");
     </script>
 
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -29,7 +29,7 @@
     </script>
 
     <style>
-        :root { --primary: #ff7a3d; --dark: #1a1a1a; --light: #f4f4f4; --white: #ffffff; }
+        :root { --primary: #ff7a3d; --dark: #1a1a1a; --light: #f4f4f4; --white: #ffffff; --green: #25d366; }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
         body { background-color: var(--light); color: var(--dark); display: flex; flex-direction: column; align-items: center; padding: 20px; }
         .container { width: 100%; max-width: 450px; background: var(--white); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 10px; }
@@ -48,15 +48,17 @@
         .overlay-cta { text-align: center; margin-top: 15px; }
         .price-tag { font-size: 14px; color: #666; }
         .price-tag span { text-decoration: line-through; }
-        .price-now { font-size: 22px; color: var(--primary); font-weight: 800; display: block; margin-bottom: 10px; }
+        .price-now { font-size: 24px; color: #2E8B57; font-weight: 800; display: block; }
+        .pix-promo { background: #e8f5e9; color: #2e7d32; padding: 5px 10px; border-radius: 8px; font-size: 13px; font-weight: bold; display: inline-block; margin-bottom: 15px; }
         .btn-buy { 
-            display: block; width: 100%; background: #25d366; color: white; text-decoration: none; 
-            padding: 20px; border-radius: 12px; font-size: 20px; font-weight: 800; 
+            display: block; width: 100%; background: var(--green); color: white; text-decoration: none; 
+            padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 800; 
             text-transform: uppercase; animation: pulse 2s infinite; text-align: center;
         }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-        .social-proof { font-size: 12px; color: #888; margin-top: 10px; }
-        .urgency { font-size: 11px; color: #d93025; margin-top: 5px; font-weight: 700; }
+        .social-proof { font-size: 12px; color: #888; margin-top: 15px; }
+        .urgency { font-size: 12px; color: #d93025; margin-top: 5px; font-weight: 700; }
+        .wa-link { margin-top: 15px; display: block; color: #075e54; font-size: 13px; font-weight: 600; text-decoration: none; }
         footer { margin-top: 30px; text-align: center; font-size: 11px; color: #999; }
     </style>
 </head>
@@ -86,66 +88,24 @@
                 <div class="blur-text">
                     <p><strong>Whey Protein:</strong> 32g após o treino</p>
                     <p><strong>Creatina:</strong> 5g todos os dias</p>
-                    <p><strong>Pré-treino:</strong> 8g (1 scoop) 30min antes</p>
+                    <p><strong>Pré-treino:</strong> 1 scoop 30min antes</p>
                 </div>
             </div>
 
             <div class="overlay-cta">
                 <p class="price-tag">De <span>R$ 97,00</span> por apenas:</p>
-                <span class="price-now">R$ 39,90</span>
+                <span class="price-now">R$ 29,90</span>
+                <div class="pix-promo">🔥 PIX com 5% OFF: R$ 28,40</div>
                 
-                <!-- LINK KIRVANO ATUALIZADO -->
-                <a href="https://pay.kirvano.com/5fdffb60-04b4-4f88-a5da-75bd66dd4a22" class="btn-buy" onclick="trackPurchaseClick()">Quero Meu Acesso Agora</a>
-                <p style="text-align: center; font-size: 12px; color: #28a745; font-weight: bold; margin-top: 5px; margin-bottom: 15px;">
-    ✅ ACESSO LIBERADO NA HORA VIA E-MAIL (PIX)
-</p>
+                <!-- LINK PARA O REDIRECT -->
+                <a href="redirect.html" class="btn-buy">Quero Meu Acesso Agora</a>
                 
-                <p class="social-proof">⭐ Junte-se a +1.240 usuários ativos</p>
+                <p class="social-proof">⭐ "Melhor investimento que fiz no ano!" - Pedro S.</p>
                 <p class="urgency">⚠️ ÚLTIMAS 7 VAGAS COM ACESSO VITALÍCIO</p>
-           <!-- BLOCO DE CONVERSÃO: URGÊNCIA + SEGURANÇA -->
-<div id="conversion-booster" style="max-width: 350px; margin: 20px auto; padding: 15px; border: 1px dashed #28a745; border-radius: 10px; background-color: #f9fff9; font-family: sans-serif; text-align: center;">
-    <p style="color: #d9534f; font-weight: bold; font-size: 14px; margin: 0 0 5px 0; text-transform: uppercase;">
-        ⚠️ Esta oferta expira em:
-    </p>
-    <div id="countdown-timer" style="font-size: 24px; font-weight: bold; color: #333; margin-bottom: 10px;">05:00</div>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px;">
-        <div style="font-size: 11px; color: #555; line-height: 1.2;">
-            <img src="https://img.icons8.com/color/48/000000/shield.png" style="width: 18px; vertical-align: middle;">
-            <strong>Compra Segura</strong>
-        </div>
-        <div style="width: 1px; height: 20px; background: #ccc;"></div>
-        <div style="font-size: 11px; color: #555; line-height: 1.2;">
-            <img src="https://img.icons8.com/color/48/000000/ok--v1.png" style="width: 18px; vertical-align: middle;">
-            <strong>7 Dias Garantia</strong>
-        </div>
-    </div>
-</div>
 
-<script>
-    // Script do Cronômetro Regressivo
-    (function() {
-        var duration = 60 * 5;
-        var timer = duration, minutes, seconds;
-        var display = document.querySelector('#countdown-timer');
-        
-        var countdown = setInterval(function () {
-            minutes = parseInt(timer / 60, 10);
-            seconds = parseInt(timer % 60, 10);
-
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            if (display) {
-                display.textContent = minutes + ":" + seconds;
-            }
-
-            if (--timer < 0) {
-                timer = 0;
-                clearInterval(countdown);
-            }
-        }, 1000);
-    })();
-</script>
+                <a href="https://wa.me/5511986562392?text=Quero%20comprar%20o%20Protocolo%203D%20por%2029,90" class="wa-link">
+                    💬 Dúvidas? Chame no WhatsApp
+                </a>
             </div>
         </div>
     </div>
@@ -167,36 +127,6 @@
                 fbq('track', 'ViewContent');
             }, 2000);
         }
-        function trackPurchaseClick() { fbq('track', 'InitiateCheckout'); }
     </script>
 </body>
-    <!-- Pop-up de Prova Social Dinâmico -->
-<div id="social-pop" style="display: none; position: fixed; bottom: 20px; left: 20px; background: white; padding: 10px 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 9999; border-left: 5px solid #28a745; font-family: sans-serif; align-items: center; gap: 10px;">
-    <img src="https://img.icons8.com/color/48/000000/checked-user-male.png" style="width: 30px;">
-    <div>
-        <p id="pop-text" style="margin: 0; font-size: 12px; color: #333; font-weight: bold;"></p>
-        <p style="margin: 0; font-size: 10px; color: #28a745;">Acabou de adquirir o acesso vitalício!</p>
-    </div>
-</div>
-
-<script>
-    (function() {
-        const names = ["Marcos S.", "Ana P.", "Ricardo F.", "Juliana M.", "Lucas T.", "Carla R.", "Felipe B.", "Gustavo H.", "Beatriz L."];
-        const pop = document.getElementById('social-pop');
-        const popText = document.getElementById('pop-text');
-
-        function showPop() {
-            const name = names[Math.floor(Math.random() * names.length)];
-            popText.innerText = name;
-            pop.style.display = 'flex';
-            setTimeout(() => { pop.style.display = 'none'; }, 5000);
-        }
-
-        // Mostra o primeiro após 8 segundos, depois a cada 25 segundos
-        setTimeout(() => {
-            showPop();
-            setInterval(showPop, 25000);
-        }, 8000);
-    })();
-</script>
 </html>
