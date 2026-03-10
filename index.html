@@ -29,71 +29,24 @@
   </script>
 
   <style>
-    :root{
-      --primary:#ff7a3d; --dark:#111; --light:#f5f5f7; --white:#fff; --green:#17a673;
-      --accent:#f9e7c9; --accent-border:#f2b84a;
-    }
+    :root{ --primary:#ff7a3d; --dark:#111; --light:#f5f5f7; --white:#fff; --green:#17a673; --accent-border:#f2b84a; }
     *{box-sizing:border-box}
-    body{
-      margin:0; font-family:Inter, Roboto, Arial, sans-serif; background:var(--light);
-      color:var(--dark); -webkit-font-smoothing:antialiased;
-    }
-
-    .topbar{
-      position:fixed; top:0; left:0; right:0; background:#d93025; color:#fff;
-      padding:10px 12px; font-weight:800; font-size:14px; z-index:9999; text-align:center;
-    }
-    .page-wrap{ padding-top:76px; display:flex; flex-direction:column; align-items:center; padding-bottom:60px; }
-
-    .promo-note{
-      width:92%; max-width:760px; margin-top:12px; background:#fff8ed;
-      border:2px solid var(--accent-border); border-radius:10px; padding:14px 18px; color:#7a4b00;
-    }
-    .promo-label{
-      display:inline-block; background:var(--accent-border); color:#fff; padding:6px 10px; border-radius:18px;
-      font-weight:800; font-size:12px; margin-bottom:8px;
-    }
-
-    .card{
-      width:92%; max-width:460px; background:var(--white); border-radius:16px; padding:22px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.06); margin-top:18px;
-    }
-
+    body{ margin:0; font-family:Inter, Roboto, Arial, sans-serif; background:var(--light); color:var(--dark); -webkit-font-smoothing:antialiased; }
+    .topbar{ position:fixed; top:0; left:0; right:0; background:#d93025; color:#fff; padding:10px; font-weight:800; font-size:14px; z-index:9999; text-align:center; }
+    .page-wrap{ padding-top:70px; display:flex; flex-direction:column; align-items:center; padding-bottom:60px; }
+    .promo-note{ width:92%; max-width:460px; margin-top:12px; background:#fff8ed; border:2px solid var(--accent-border); border-radius:10px; padding:14px; color:#7a4b00; }
+    .card{ width:92%; max-width:460px; background:var(--white); border-radius:16px; padding:22px; box-shadow:0 12px 30px rgba(0,0,0,0.06); margin-top:18px; }
     header h1{ margin:0; font-size:26px; text-align:center; font-weight:800 }
     header p{ margin:6px 0 16px; text-align:center; color:#666 }
-
-    input[type=number]{
-      width:100%; padding:14px; border-radius:12px; border:1px solid #eee; font-size:15px; margin-bottom:14px;
-    }
-    .btn-primary{
-      width:100%; background:var(--primary); color:white; border:none; padding:16px; border-radius:12px;
-      font-weight:800; font-size:16px; cursor:pointer; text-transform:uppercase;
-    }
-
+    input[type=number]{ width:100%; padding:14px; border-radius:12px; border:1px solid #eee; font-size:16px; margin-bottom:14px; outline:none; }
+    .btn-primary{ width:100%; background:var(--primary); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; font-size:16px; cursor:pointer; }
     #result-area{ display:none; margin-top:18px; }
-
-    .coupon-box{
-      border:2px dashed #f2b84a; background:#fffaf0; padding:12px; border-radius:10px; margin:14px 0;
-      text-align:center; color:#6b3f00; font-weight:700;
-    }
-
-    .price-line{ text-align:center; margin-top:6px; }
-    .price-now{ display:block; font-size:34px; color:var(--green); font-weight:900; margin-top:6px }
-    
-    .cta-buy{
-      display:block; width:100%; text-align:center; padding:18px; margin-top:14px; border-radius:12px;
-      background:var(--green); color:white; font-weight:900; text-decoration:none; font-size:18px;
-    }
-
-    .seals{ display:flex; justify-content:center; gap:18px; margin-top:14px; opacity:0.9 }
-    .seal{ text-align:center; font-size:11px; color:#444 }
-
-    .testi-list{ width:92%; max-width:460px; margin-top:18px; display:flex; flex-direction:column; gap:12px }
-    .testi{ background:white; border-radius:12px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.04) }
-    .testi img{ width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid var(--primary) }
-
-    #social-pop{ display:none; position:fixed; left:18px; bottom:18px; background:white; padding:10px 12px; border-radius:10px;
-      box-shadow:0 8px 26px rgba(0,0,0,0.18); z-index:99999; align-items:center; border-left:4px solid #25d366; gap:10px; }
+    .coupon-box{ border:2px dashed #f2b84a; background:#fffaf0; padding:12px; border-radius:10px; margin:14px 0; text-align:center; color:#6b3f00; font-weight:700; }
+    .price-now{ display:block; font-size:34px; color:var(--green); font-weight:900; text-align:center; margin:10px 0; }
+    .cta-buy{ display:block; width:100%; text-align:center; padding:18px; border-radius:12px; background:var(--green); color:white; font-weight:900; text-decoration:none; font-size:18px; }
+    .testi{ background:white; border-radius:12px; padding:12px; display:flex; gap:12px; align-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.04); width:92%; max-width:460px; margin-top:12px; }
+    .testi img{ width:50px; height:50px; border-radius:50%; object-fit:cover; }
+    #social-pop{ display:none; position:fixed; left:15px; bottom:15px; background:white; padding:10px; border-radius:10px; box-shadow:0 8px 26px rgba(0,0,0,0.15); z-index:99999; align-items:center; border-left:4px solid #25d366; gap:10px; }
   </style>
 </head>
 <body>
@@ -102,8 +55,8 @@
 
   <div class="page-wrap">
     <div class="promo-note">
-      <div class="promo-label">🎉 PROMOÇÃO DE LANÇAMENTO — SÓ HOJE</div>
-      <p>Para celebrar o lançamento do Protocolo 3D, liberamos acesso por <strong>R$ 19,90</strong> — normalmente R$ 29,90. <strong>Você economiza R$ 10,00 agora.</strong></p>
+      <div style="background:var(--accent-border);color:#fff;padding:4px 8px;border-radius:10px;display:inline-block;font-size:11px;font-weight:800;margin-bottom:8px;">LANÇAMENTO</div>
+      <p style="margin:0;font-size:14px;">Acesso liberado por <strong>R$ 19,90</strong> (Normal: R$ 29,90). <strong>Economize R$ 10,00 agora.</strong></p>
     </div>
 
     <div class="card">
@@ -116,84 +69,82 @@
       <button class="btn-primary" id="btnCalc">VER MEU PROTOCOLO</button>
 
       <div id="result-area">
-        <div style="background:#e8f5e9;padding:12px;border-radius:12px;border:1px solid #d6efde;margin-bottom:12px;">
-          <strong style="color:#1b7a49;">✅ Protocolo Gerado com Sucesso!</strong>
+        <div style="background:#e8f5e9;padding:10px;border-radius:10px;border:1px solid #d6efde;color:#1b7a49;font-weight:700;text-align:center;">✅ Protocolo Gerado com Sucesso!</div>
+        
+        <div class="coupon-box">🎁 DESCONTO APLICADO!<br><span style="font-size:13px;">De R$ 29,90 por apenas:</span></div>
+        
+        <div class="price-now">R$ 19,90</div>
+        
+        <a id="buyLink" class="cta-buy" href="redirect.html">ENTRAR NO PROTOCOLO AGORA</a>
+
+        <div style="display:flex;justify-content:center;gap:15px;margin-top:15px;font-size:11px;color:#666;">
+          <span>🔒 Checkout Seguro</span><span>✅ 7 Dias de Garantia</span>
         </div>
 
-        <div class="coupon-box">
-          🎁 DESCONTO DE LANÇAMENTO APLICADO!<br>
-          <span style="font-size:13px; font-weight:600;">De R$ 29,90 por apenas <strong>R$ 19,90</strong></span>
-        </div>
-
-        <div class="price-line">
-          <div style="font-size:14px;color:#999;">Preço Normal: <span style="text-decoration:line-through;">R$ 29,90</span></div>
-          <div class="price-now">R$ 19,90</div>
-          <div style="margin-top:8px; color:#17a673; font-weight:700; font-size:14px;">✅ ACESSO VITALÍCIO LIBERADO</div>
-        </div>
-
-        <a id="buyLink" class="cta-buy" href="https://pay.kiwify.com.br/GJE6oI0">ENTRAR NO PROTOCOLO AGORA</a>
-
-        <div class="seals">
-          <div class="seal">🔒 Checkout Seguro</div>
-          <div class="seal">✅ 7 dias de Garantia</div>
-        </div>
-
-        <a style="display:block;text-align:center;margin-top:16px;color:#075e54;font-weight:700;text-decoration:none;font-size:13px;"
-           href="https://wa.me/5511986562392?text=Quero%20comprar%20o%20Protocolo%203D%20por%2019,90">
-          💬 Problemas no pagamento? Chame no WhatsApp
-        </a>
+        <a style="display:block;text-align:center;margin-top:15px;color:#075e54;font-weight:700;text-decoration:none;font-size:13px;" href="https://wa.me/5511986562392?text=Duvida%20Protocolo">💬 Suporte via WhatsApp</a>
       </div>
     </div>
 
-    <div class="testi-list">
-      <div class="testi">
-        <img src="carlos.PNG" alt="Carlos">
-        <div><strong>Carlos Eduardo — São Paulo</strong><p>“Economizei R$ 120 no primeiro mês.”</p></div>
-      </div>
-      <div class="testi">
-        <img src="juliana.PNG" alt="Juliana">
-        <div><strong>Juliana Mendes — Curitiba</strong><p>“O guia de combinações é bizarro!”</p></div>
-      </div>
+    <div class="testi">
+      <img src="carlos.PNG" alt="">
+      <div><strong style="font-size:13px;">Carlos Eduardo — SP</strong><p style="margin:4px 0 0;font-size:12px;color:#444;">"Economizei R$ 120 no primeiro mês."</p></div>
+    </div>
+    <div class="testi">
+      <img src="juliana.PNG" alt="">
+      <div><strong style="font-size:13px;">Juliana Mendes — PR</strong><p style="margin:4px 0 0;font-size:12px;color:#444;">"O guia de combinações é bizarro!"</p></div>
+    </div>
+    <div class="testi">
+      <img src="ricardo.PNG" alt="">
+      <div><strong style="font-size:13px;">Ricardo Alves — BH</strong><p style="margin:4px 0 0;font-size:12px;color:#444;">"Ajustei a Creatina e em 2 semanas senti diferença real."</p></div>
     </div>
   </div>
 
   <div id="social-pop">
-    <img src="https://img.icons8.com/color/48/000000/checked-user-male.png" width="32" height="32">
-    <div><div id="pop-text" style="font-weight:800; font-size:13px;">Fulano comprou!</div></div>
+    <img src="https://img.icons8.com/color/48/000000/checked-user-male.png" width="30" height="30">
+    <div id="pop-text" style="font-weight:800;font-size:12px;"></div>
   </div>
 
   <script>
-    // Timer
+    // Timer com localStorage — persiste entre visitas
     (function(){
-      var timerEl = document.getElementById('promo-timer');
-      var count = 900;
+      var KEY = 'p3d_timer_end';
+      var end = localStorage.getItem(KEY);
+      if(!end || Date.now() > parseInt(end)){
+        end = Date.now() + 15 * 60 * 1000;
+        localStorage.setItem(KEY, end);
+      }
       setInterval(function(){
-        count--;
-        var m = Math.floor(count/60), s = count%60;
-        timerEl.innerText = (m<10?'0'+m:m) + ':' + (ss=s<10?'0'+s:s);
+        var left = Math.max(0, parseInt(localStorage.getItem(KEY)) - Date.now());
+        var m = Math.floor(left/60000), s = Math.floor((left%60000)/1000);
+        document.getElementById('promo-timer').innerText = (m<10?'0'+m:m) + ':' + (s<10?'0'+s:s);
       }, 1000);
     })();
 
-    // Calc
+    // Calculadora e Pixel
     document.getElementById('btnCalc').addEventListener('click', function(){
       var p = document.getElementById('peso').value;
-      if(!p || p < 30){ alert('Peso inválido'); return; }
+      if(!p || p < 30){ alert('Insira um peso válido.'); return; }
       fbq('track','Lead');
       this.innerText = 'ANALISANDO...';
       setTimeout(function(){
         document.getElementById('btnCalc').style.display = 'none';
         document.getElementById('result-area').style.display = 'block';
         fbq('track','ViewContent');
-      }, 1000);
+      }, 1200);
     });
 
-    // Social Pop
-    setInterval(function(){
-      var names = ["Marcos","Ana","Ricardo","Juliana","Lucas"];
-      document.getElementById('pop-text').innerText = names[Math.floor(Math.random()*names.length)] + " acabou de comprar!";
-      document.getElementById('social-pop').style.display = 'flex';
-      setTimeout(function(){ document.getElementById('social-pop').style.display = 'none'; }, 4000);
-    }, 15000);
+    // Social Pop com Nomes Reais
+    (function(){
+      var names = ["Marcos Silva","Ana Paula","Ricardo Alves","Juliana M.","Lucas T.","Carla Rocha","Felipe G.","Bruno Souza","Patrícia L."];
+      var pop = document.getElementById('social-pop');
+      function showPop(){
+        document.getElementById('pop-text').innerText = names[Math.floor(Math.random()*names.length)] + " acabou de comprar!";
+        pop.style.display = 'flex';
+        setTimeout(function(){ pop.style.display = 'none'; }, 4000);
+      }
+      setTimeout(showPop, 15000);
+      setInterval(showPop, 25000);
+    })();
   </script>
 </body>
 </html>
