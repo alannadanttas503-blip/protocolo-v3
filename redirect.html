@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecionando...</title>
+    <style>
+        body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f4f4f4; }
+        .loader { text-align: center; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #25d366; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+
+    <!-- Facebook Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '762390922964859');
+    
+    // AQUI O EVENTO REAL DE INITIATE CHECKOUT DISPARA
+    fbq('track', 'InitiateCheckout', {value: 29.90, currency: 'BRL'});
+    </script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <p>Abrindo checkout seguro...</p>
+    </div>
+
+    <script>
+        // Redireciona após 1.5 segundos para dar tempo do Pixel disparar
+        setTimeout(function() {
+            window.location.href = "https://pay.kirvano.com/5fdffb60-04b4-4f88-a5da-75bd66dd4a22";
+        }, 1500);
+    </script>
+</body>
+</html>
